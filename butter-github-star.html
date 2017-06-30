@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<dom-module id="butter-github-star">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      iron-icon{
+        color: var(--butter-github-star-color, var(--iron-icon-fill-color, gold));
+      }
+    </style>
+
+    <iron-icon icon="star"></iron-icon>
+    <iron-icon icon="star-border"></iron-icon>
+    <h2>{{stars}}</h2>
+  </template>
+
+  <script>
+    /**
+     * `butter-github-star`
+     * Number of star of a repository Github
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ButterGithubStar extends Polymer.Element {
+      static get is() { return 'butter-github-star'; }
+      
+      static get properties() {
+        return {
+          stars: {
+            type: Number,
+            value: 0
+          },
+          user: String,
+          repository: String
+        };
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+      
+        this._fetchRepository();
+      }
+
+      _fetchRepository() {
+        fetch('http://api.github.com/repos/' + this.user + '/' + this.repository)
+          .then((result) =>  { return result.json() })
+          .then((result) => {      
+            this.stars = result.stargazers_count ;
+          });
+      }
+    }
+
+    window.customElements.define(ButterGithubStar.is, ButterGithubStar);
+  </script>
+</dom-module>
