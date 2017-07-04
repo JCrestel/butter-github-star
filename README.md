@@ -16,7 +16,7 @@
 ```
 -->
 ```html
-<butter-github-star user="" repository=""></butter-github-star>
+<butter-github-star user="JCrestel" repository="butter-github-star"></butter-github-star>
 ```
 
 ## Installation
