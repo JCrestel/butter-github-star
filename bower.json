@@ -1,6 +1,6 @@
 {
   "name": "butter-github-star",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Number of stars of a repository Github",
   "main": "butter-github-star.html",
   "dependencies": {
