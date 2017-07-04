@@ -2,7 +2,7 @@
 
 # \<butter-github-star\> [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/JCrestel/butter-github-star)
 
-### This web-component show the number of of a github repository. 
+### This web-component show the number of stars of a Github repository. 
 
 <!---
 ```
