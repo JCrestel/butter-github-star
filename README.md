@@ -35,11 +35,11 @@ Install the component using [Bower](https://bower.io/)
 ```
 * Use the component:
 ```html
-<butter-github-star user="" repository=""></butter-github-star>
+<butter-github-star user="JCrestel" repository="butter-github-star"></butter-github-star>
 ```
 ### Attributes
 Attribute | Type | Mandatory | Description
-----------|------|-----------|-------------
+----------|:----:|:---------:|-------------
 `user` | *String* | Yes | User on Github
 `repository` | *String* | Yes | Repository of the user
 
@@ -48,8 +48,8 @@ Attribute | Type | Mandatory | Description
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--butter-icon-color` | Color of the star | --iron-icon-fill-color
-`--iron-icon-fill-color` | Color of the star if --butter-icon-color not defined | black
+`--butter-icon-color` | Color of the star | `--iron-icon-fill-color`
+`--iron-icon-fill-color` | Color of the star if `--butter-icon-color` not defined | black
 `--butter-background-color` | Background color of left part | #e6ebf1
 `--butter-border-color` | Border color | rgba(27,31,35,0.35)
 `--butter-font-familly` | Font familly | 'Roboto', 'Noto', sans-serif
