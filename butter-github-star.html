@@ -4,77 +4,102 @@
 <dom-module id="butter-github-star">
   <template>
     <style>
+
       :host {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: fit-content;
-        border-radius: 10px;
-        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        border:  1px solid var(--butter-border-color,rgba(27,31,35,0.35));
+        font-family: var(--butter-font-familly, 'Roboto', 'Noto', sans-serif);
+        border-radius: 5px;
       }
 
-      :host > div {
-        padding: 0 1em;
+      .flexItem1, .flexItem2{
+        padding: 0 10px;
+        background-color: var(--butter-background-color,#e6ebf1);
+      }
+
+      .flexItem1{
+        border-right:  1px solid var(--butter-border-color,rgba(27,31,35,0.35));
+        border-radius: 5px 0 0 5px;
+      }
+
+      .flexItem2{
+        background-color: initial; 
+        border-radius: 0 5px 5px 0;
       }
 
       iron-icon{
-        color: var(--butter-github-star-color, var(--iron-icon-fill-color, gold));
-      }
-            
-      .column{
-        display: flex;
-        flex-direction:column;
-        align-items: center;
-        border-right:  1px solid black;
-        background-color: silver;
-        border-radius: 10px 0 0 10px;
+        padding-right: 5px;
+        color: var(--butter-icon-color, var(--iron-icon-fill-color, black));
       }
     </style>
 
-    <div class="column">
-      <iron-icon icon="star"></iron-icon>
-      <span>{{stars}}</span>
-    </div>
-    <div>      
-      <strong>{{user}}/{{repository}}</strong>
-    </div>
+    <span class="flexItem1"><iron-icon icon="star"></iron-icon>Star</span>
+    <span class="flexItem2">{{stars}}</span>
+
   </template>
 
   <script>
     /**
      * `butter-github-star`
-     * Number of star of a repository Github
+     * Number of stars of a repository Github
      *
      * @customElement
      * @polymer
      * @demo demo/index.html
+     * 
+     * ### Styling
+     *
+     *  `<butter-github-star>` provides the following custom properties for styling:
+     *
+     *  Custom property | Description | Default
+     *  ----------------|-------------|----------
+     *  `--butter-icon-color` | Color of the star | --iron-icon-fill-color
+     *  `--iron-icon-fill-color` | Color of the star if --butter-icon-color not defined | black
+     *  `--butter-background-color` | Background color of left part | #e6ebf1
+     *  `--butter-border-color` | Border color | rgba(27,31,35,0.35)
+     *  `--butter-font-familly` | Font familly | 'Roboto', 'Noto', sans-serif
      */
     class ButterGithubStar extends Polymer.Element {
       static get is() { return 'butter-github-star'; }
       
       static get properties() {
         return {
+          /** 
+           * Number of stars 
+           * @type {number} 
+           */
           stars: {
             type: Number,
             value: 0
           },
+          /** User */
           user: String,
+          /** Repository */
           repository: String
         };
       }
 
+      /**
+       * connectedCallback
+       */
       connectedCallback() {
         super.connectedCallback();
       
         this._fetchRepository();
       }
 
+      /**
+       * Calls the Github's api to get the number of stars of a repository
+       */
       _fetchRepository() {
         fetch('http://api.github.com/repos/' + this.user + '/' + this.repository)
-          .then((result) =>  { return result.json() })
+          .then((result) => { return result.json() })
           .then((result) => {      
             this.stars = result.stargazers_count ;
           });
+          // TODO Manage the error
       }
     }
 

@@ -1,8 +1,9 @@
 {
   "name": "butter-github-star",
-  "description": "Number of star of a repository Github",
+  "description": "Number of stars of a repository Github",
   "main": "butter-github-star.html",
   "dependencies": {
+    "iron-icons": "PolymerElements/iron-icons#^2.0.1",
     "polymer": "Polymer/polymer#^2.0.0"
   },
   "devDependencies": {
