@@ -1,9 +1,9 @@
 {
   "name": "butter-github-star",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Demo of the component butter-github-star",
   "dependencies": {
-    "butter-github-star": "JCrestel/butter-github-star#^1.0.0"
+    "butter-github-star": "JCrestel/butter-github-star#^1.0.3"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",

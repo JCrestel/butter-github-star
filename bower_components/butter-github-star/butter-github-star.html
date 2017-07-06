@@ -5,8 +5,11 @@
   <template>
     <style>
 
-      :host {
-        width: fit-content;
+      :host{
+        display: inline-block;
+      }
+
+      .wrapper {
         display: flex;
         align-items: center;
         border:  1px solid var(--butter-border-color,rgba(27,31,35,0.35));
@@ -35,8 +38,10 @@
       }
     </style>
 
-    <span class="flexItem1"><iron-icon icon="star"></iron-icon>Star</span>
-    <span class="flexItem2">{{stars}}</span>
+    <div class="wrapper">
+      <span class="flexItem1"><iron-icon icon="star"></iron-icon>Star</span>
+      <span class="flexItem2">{{stars}}</span>      
+    </div>
 
   </template>
 
@@ -94,12 +99,20 @@
        * Calls the Github's api to get the number of stars of a repository
        */
       _fetchRepository() {
-        fetch('http://api.github.com/repos/' + this.user + '/' + this.repository)
-          .then((result) => { return result.json() })
-          .then((result) => {      
-            this.stars = result.stargazers_count ;
-          });
-          // TODO Manage the error
+        fetch('https://api.github.com/repos/' + this.user + '/' + this.repository)
+          .then(this._handleFetchResponse)
+          .then(response => this.stars = response.stargazers_count)
+          .catch(console.log);
+      }
+
+      /**
+       * Handle failed HTTP Responses With fetch() & return the json if Ok
+       */
+      _handleFetchResponse(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.json();
       }
     }
 

@@ -1,8 +1,6 @@
-# WORK IN PROGRESS // Nothing submit
+# \<butter-github-star\> [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/JCrestel/butter-github-star) [![Build Status](https://travis-ci.org/JCrestel/butter-github-star.svg?branch=master)](https://travis-ci.org/JCrestel/butter-github-star)
 
-# \<butter-github-star\> [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/JCrestel/butter-github-star)
-
-### This web-component show the number of of a github repository. 
+### This web-component shows the number of stars of a Github repository. 
 
 <!---
 ```
@@ -22,7 +20,7 @@
 ## Installation
 Install the component using [Bower](https://bower.io/)
 
-```$ bower install JCrestel/butter-github-star --save```
+```$ bower install butter-github-star --save```
 
 ## Usage
 * Import Web Components's polyfill (if needed):
