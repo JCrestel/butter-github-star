@@ -99,7 +99,7 @@
        * Calls the Github's api to get the number of stars of a repository
        */
       _fetchRepository() {
-        fetch('http://api.github.com/repos/' + this.user + '/' + this.repository)
+        fetch('https://api.github.com/repos/' + this.user + '/' + this.repository)
           .then(this._handleFetchResponse)
           .then(response => this.stars = response.stargazers_count)
           .catch(console.log);
