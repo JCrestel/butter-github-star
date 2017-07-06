@@ -95,11 +95,19 @@
        */
       _fetchRepository() {
         fetch('http://api.github.com/repos/' + this.user + '/' + this.repository)
-          .then((result) => { return result.json() })
-          .then((result) => {      
-            this.stars = result.stargazers_count ;
-          });
-          // TODO Manage the error
+          .then(this._handleFetchResponse)
+          .then(response => this.stars = response.stargazers_count)
+          .catch(console.log);
+      }
+
+      /**
+       * Handle failed HTTP Responses With fetch() & return the json if Ok
+       */
+      _handleFetchResponse(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.json();
       }
     }
 
