@@ -1,7 +1,7 @@
 {
   "name": "butter-github-star",
   "version": "1.0.1",
-  "description": "Number of stars of a repository Github",
+  "description": "Number of stars of a Github repository",
   "main": "butter-github-star.html",
   "dependencies": {
     "iron-icons": "PolymerElements/iron-icons#^2.0.1",
@@ -15,5 +15,8 @@
   "license": "Apache-2.0",
   "resolutions": {
     "polymer": "^2.0.1"
+  },
+  "demos": {
+    "Demo": "demo/index.html"
   }
 }
