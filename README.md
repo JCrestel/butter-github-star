@@ -52,6 +52,9 @@ Custom property | Description | Default
 `--butter-border-color` | Border color | rgba(27,31,35,0.35)
 `--butter-font-familly` | Font familly | 'Roboto', 'Noto', sans-serif
 
+## Demo
+
+View the demo here: https://jcrestel.github.io/butter-github-star/
 
 ## Contributing
 1. Fork it!
